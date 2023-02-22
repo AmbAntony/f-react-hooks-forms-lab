@@ -12,9 +12,9 @@ function ShoppingList({ items , onItemFormSubmit}) {
     setSelectedCategory(event.target.value);
   }
 
-  function handleSearch(e) {
+  function handleSearch(event) {
         
-    setFilter(e.target.value)
+    setFilter(event.target.value)
   }
  
 
@@ -23,13 +23,13 @@ function ShoppingList({ items , onItemFormSubmit}) {
 
     return item.category === selectedCategory;
   });
-  const searchItems = itemsToDisplay.filter((item) => item.name.toLowerCase().includes(filter.toLocaleLowerCase()))
+  const displayItems = itemsToDisplay.filter((item) => item.name.toLowerCase().includes(filter.toLocaleLowerCase()))
   return (
     <div className="ShoppingList">
       <ItemForm onItemFormSubmit={onItemFormSubmit}/>
       <Filter search={filter} onSearchChange={handleSearch} onCategoryChange={handleCategoryChange} />
       <ul className="Items">
-        {searchItems.map((item) => (
+        {displayItems.map((item) => (
       <Item key={item.id} name={item.name} category={item.category} />
         ))}
       </ul>
