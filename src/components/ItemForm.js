@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import { v4 as uuid } from "uuid";
 
 
-function ItemForm({ onItemFormSubmit}) {
+function ItemForm({onItemFormSubmit}) {
     const [formEntry, setFormEntry] = useState({
-      name: "",
+      name: " ",
       category: "Produce",
     });
   
